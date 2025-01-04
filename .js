@@ -13,13 +13,11 @@ function getComputerChoice() {
     }
   }
 
-console.log(getComputerChoice())
-
 function getHumanChoice() {
     let aHumanChoice = prompt("Input Rock, Paper or Scissors?", "");
     aHumanChoice = aHumanChoice.trim().charAt(0).toUpperCase() + aHumanChoice.slice(1).toLowerCase();
 
-    if (aHumanChoice == "Rock" || aHumanChoice == "Paper" || aHumanChoice == "Scissors") {
+    if (aHumanChoice === "Rock" || aHumanChoice === "Paper" || aHumanChoice === "Scissors") {
         return(aHumanChoice)
     } else {
         return("rock, paper, scissors only!")
@@ -27,32 +25,37 @@ function getHumanChoice() {
 }
 
 function playRound() {
-    let humanChoice = getHumanChoice();
     let computerChoice = getComputerChoice();
+    let humanChoice = getHumanChoice().trim();
+    humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1).toLocaleLowerCase();
+    
+    // 调试日志
+    console.log("Human choice:", humanChoice);
+    console.log("Computer choice:", computerChoice);
 
-    if (humanChoice == computerChoice) {
-        console.log("It's a tie!")
-    } else if (humanChoice == "Rock") {
-        if (computerChoice == "Paper") {
+    if (humanChoice === computerChoice) {
+        console.log("It's a tie!");
+    } else if (humanChoice === "Rock") {
+        if (computerChoice === "Paper") {
             console.log("You lose!");
             computerScore++;
-        } else if (computerChoice == "Scissors") {
+        } else if (computerChoice === "Scissors") {
             console.log("You Win!");
             humanScore++;
         }
-    } else if (humanChoice == "Paper") {
-        if (computerChoice == "Scissors") {
+    } else if (humanChoice === "Paper") {
+        if (computerChoice === "Scissors") {
             console.log("You lose!");
             computerScore++;
-        } else if (computerChoice == "Rock") {
+        } else if (computerChoice === "Rock") {
             console.log("You Win!");
             humanScore++;
         }
-    } else if (humanChoice == "Scissors") {
-        if (computerChoice == "Rock") {
+    } else if (humanChoice === "Scissors") {
+        if (computerChoice === "Rock") {
             console.log("You lose!");
             computerScore++;
-        } else if (computerChoice == "Paper") {
+        } else if (computerChoice === "Paper") {
             console.log("You Win!");
             humanScore++;
         }
