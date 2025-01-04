@@ -17,7 +17,7 @@ console.log(getComputerChoice())
 
 function getHumanChoice() {
     let aHumanChoice = prompt("Input Rock, Paper or Scissors?", "");
-    aHumanChoice = aHumanChoice.charAt(0).toUpperCase() + aHumanChoice.slice(1);
+    aHumanChoice = aHumanChoice.trim().charAt(0).toUpperCase() + aHumanChoice.slice(1).toLowerCase();
 
     if (aHumanChoice == "Rock" || aHumanChoice == "Paper" || aHumanChoice == "Scissors") {
         return(aHumanChoice)
