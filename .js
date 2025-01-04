@@ -35,33 +35,57 @@ function playRound() {
 
     if (humanChoice === computerChoice) {
         console.log("It's a tie!");
+        return("tie")
     } else if (humanChoice === "Rock") {
         if (computerChoice === "Paper") {
             console.log("You lose!");
-            computerScore++;
+            return("computer")
         } else if (computerChoice === "Scissors") {
             console.log("You Win!");
-            humanScore++;
+            return("human")
         }
     } else if (humanChoice === "Paper") {
         if (computerChoice === "Scissors") {
             console.log("You lose!");
-            computerScore++;
+            return("computer")
         } else if (computerChoice === "Rock") {
             console.log("You Win!");
-            humanScore++;
+            return("human")
         }
     } else if (humanChoice === "Scissors") {
         if (computerChoice === "Rock") {
             console.log("You lose!");
-            computerScore++;
+            return("computer")
         } else if (computerChoice === "Paper") {
             console.log("You Win!");
-            humanScore++;
+            return("human")
         }
     }
 }
 
-playRound();
-console.log("HumanScore :" + humanScore)
-console.log("ComputerScore :" + computerScore)
+function playGame() {
+    humanScore = 0;
+    computerScore = 0;
+
+    while(humanScore < 3 && computerScore < 3) {
+        let winner = playRound();  
+        
+        if(winner === "human") {
+            humanScore++;
+        } else if (winner === "computer") {
+            computerScore++;
+        }
+
+        console.log("human score :" + humanScore);
+        console.log("computer score :" + computerScore);
+
+    }
+
+    if (humanScore === 3) {
+        console.log("The winner is human")
+    } else {
+        console.log("The winner is computer")
+    }
+}
+
+playGame();
