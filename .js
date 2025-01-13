@@ -35,7 +35,7 @@ function setupGame() {
 function updateScore() {
   const displayScore = document.querySelector("#score");
   displayScore.textContent =
-    "Player score: `${humanScore}` | Computer score: `${computerScore}";
+    `Player score: ${humanScore} | Computer score: ${computerScore}`;
 }
 
 function playRound() {
@@ -54,12 +54,13 @@ function playRound() {
   ) {
     const roundResult = document.querySelector("#round-result");
     roundResult.textContent = " Round result: You win!";
-    updateScore();
+    humanScore++;
   } else {
     const roundResult = document.querySelector("#round-result");
     roundResult.textContent = " Round result: You lose!";
     computerScore++;
   }
+  updateScore();
 }
 
 setupGame();
